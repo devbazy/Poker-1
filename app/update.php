@@ -1,10 +1,11 @@
 <?php
 include('core.php');
+include('admin/j/helpfun.php');
 
 if($_POST){
     $reporter = escape($_POST['reporter']);
     $report_id = escape($_POST['report_id']);
-    $report_time = date('Y/m/d');
+    $report_time = date('Y-m-d');
     $contact_num = escape($_POST['contact_num']);
     $department = escape($_POST['department_decode']);
     $place = escape($_POST['place']);
@@ -25,7 +26,9 @@ if($_POST){
     if(!($reporter && $report_id && $reason)){
         $smarty->assign('server_error', 'error');
     }else{
-        update_shire($reporter,$report_id,$report_time,$contact_num,$department,$place, $broken_item_class, $broken_item,$reason,$wish_time,$detail, $filename, 0,'','','', $check, $ip);
+        $shire_id = update_shire($reporter,$report_id,$report_time,$contact_num,$department,$place, $broken_item_class, $broken_item,$reason,$wish_time,$detail, $filename, 0,'','','', $check, $ip);   
+        echo "$shire_id";
+        update_notice(1, $shire_id,"new");
         $smarty->assign('server_msg', '申报成功!');
     }   
 }

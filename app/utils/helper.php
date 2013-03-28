@@ -517,7 +517,10 @@ function update_shire($reporter, $report_id, $report_time, $contact_num, $depart
         $db = new DB;
         $db->connect();
         $db->query($sql);
-    }   
+        $db->query("SELECT max(shire_id) as c FROM shire WHERE reporter=$reporter");
+        $db->next_record();
+        return $db->f('c'); 
+    } 
 }
 
 function change_shire_state($shire_id, $state, $state_context, $feedback){

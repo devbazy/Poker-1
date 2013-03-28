@@ -145,7 +145,7 @@ $(function(){
         if(feedback == 1){
             extra_data = btn.closest('tr').next().find('input').val().trim();
         }
-        $.post('j/user.php', {shire_id:shire_id, feedback:feedback, request_days: request_days, extra_data:extra_data},
+        $.post('j/user.php', {shire_id:shire_id, feedback:feedback, request_days: request_days, extra_data:extra_data, role_id:'1'},
             function(d){
                 if(d.r){ 
                     alert("成功!");

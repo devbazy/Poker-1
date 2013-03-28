@@ -172,7 +172,7 @@
   <script>
   $(function(){
     $.datepicker.setDefaults($.datepicker.regional["zh-CN"]);
-    $('#wish_time').datepicker({dateFormat: 'yy-mm-dd'});
+    $('#wish_time').datepicker({dateFormat: 'yy/mm/dd'});
     var const_broken_item = {
       'fs': {
         'fwfs': '房屋防水',

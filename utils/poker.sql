@@ -45,6 +45,18 @@ INSERT INTO `barrack` (`orc_id`, `consumer`, `password`, `role_id`) VALUES
 (6, 'user1', '202cb962ac59075b964b07152d234b70', 2);
 
 -- --------------------------------------------------------
+--
+-- 表的结构 `notice`
+--
+
+CREATE TABLE IF NOT EXISTS `notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序列号',
+  `role_id` int(11) NOT NULL COMMENT '角色id',
+  `shire_id` int(11) NOT NULL COMMENT '报修id(PK)',
+  `event` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '事件',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
+------------------------------------------------------------------
 
 --
 -- 表的结构 `role`
@@ -81,7 +93,6 @@ CREATE TABLE IF NOT EXISTS `shire` (
   `department` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '故障部门或班级',
   `place` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '故障地点',
   `reason` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '故障原因',
-  `wish_time` date DEFAULT NULL COMMENT '期待完成日期',
   `detail` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '详细原因',
   `filename` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `broken_item_class` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
