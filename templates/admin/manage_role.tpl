@@ -32,6 +32,7 @@
         </thead>
       </table>
     </div>
+    <div class="fix">&nbsp;</div>
   </div>
 {literal}
 <script>

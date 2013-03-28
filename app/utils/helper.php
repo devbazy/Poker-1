@@ -687,14 +687,14 @@ function del_role_type($role_id){
     return 1;
 }
 
-function update_consumer_password($consumer, $origin_password, $password){
+function update_consumer_password($consumer, $origin_password, $password, $telephone){
     $db = new DB;
     $db->connect();
     $db->query("SELECT consumer FROM barrack WHERE consumer='$consumer' AND "
               ."password='" . md5($origin_password) . "';");
     $db->next_record();
     if($db->f('consumer')){
-        $db->query("UPDATE barrack SET password='" . md5($password) . "' WHERE "
+        $db->query("UPDATE barrack SET password='" . md5($password) . "' ,telephone='$telephone'WHERE "
                   ."consumer='$consumer';");
         return true;
     }else{
@@ -702,7 +702,7 @@ function update_consumer_password($consumer, $origin_password, $password){
     }
 }
 
-function add_new_consumer($consumer, $password, $role_id){
+function add_new_consumer($consumer, $password, $role_id, $telephone){
     $db = new DB;
     $db->connect();
     $db->query("SELECT consumer FROM barrack WHERE consumer='$consumer';");
@@ -710,8 +710,8 @@ function add_new_consumer($consumer, $password, $role_id){
     if($db->f('consumer')){
         return false;
     }else{
-        $db->query("INSERT INTO barrack(consumer, password, role_id) VALUES('$consumer', "
-                  ."'" . md5($password) . "', $role_id);");
+        $db->query("INSERT INTO barrack(consumer, password, role_id, telephone) VALUES('$consumer', "
+                  ."'" . md5($password) . "', $role_id, $telephone);");
         return true;
     }
 }

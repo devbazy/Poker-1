@@ -12,11 +12,12 @@ if($_POST){
     $origin_password = escape($_POST['origin_password']);
     $password = escape($_POST['password']);
     $re_password = escape($_POST['re_password']);
+    $telephone = escape($_POST['telephone']);
 
     if($consumer != $consumer_in_form or $password!=$re_password){
         $smarty->assign('server_msg', 'Error');
     }else{
-        $flag = update_consumer_password($consumer, $origin_password, $password);
+        $flag = update_consumer_password($consumer, $origin_password, $password, $telephone);
         if($flag){
             $smarty->assign('server_msg', '修改成功!');
         }else{

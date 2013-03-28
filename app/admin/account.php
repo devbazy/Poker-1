@@ -11,11 +11,12 @@ if($_POST){
     $consumer = escape($_POST['consumer']);
     $password = escape($_POST['password']);
     $re_password = escape($_POST['re_password']);
+    $telephone = escape($_POST['telephone']);
 
     if($password != $re_password){
         $smarty->assign('server_msg', '两次密码不一致!');
     }else{
-        $flag = add_new_consumer($consumer, $password, $role_id);
+        $flag = add_new_consumer($consumer, $password, $role_id, $telephone);
         if($flag){
             $smarty->assign('server_msg', '添加成功!');
         }else{

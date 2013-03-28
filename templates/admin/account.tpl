@@ -38,6 +38,12 @@
           </div>
         </div>
         <div class="control-group">
+          <label class="control-label" for="telephone">电话号码</label>
+          <div class="controls">
+            <input type="password" id="telephone" name="telephone" placeholder="请输入电话号码！">
+          </div>
+        </div>
+        <div class="control-group">
           <div class="controls">
             <button type="submit" class="btn">添加</button>
             <button type="reset" class="btn">重置</button>
@@ -46,6 +52,7 @@
       </form>
 
     </div>
+    <div class="fix">&nbsp;</div>
   </div>
 {literal}
 <script>

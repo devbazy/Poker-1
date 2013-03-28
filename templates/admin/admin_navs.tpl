@@ -12,7 +12,7 @@
           <li class="nav-header">用户管理</li>
           <li><a href="manage_role.php">身份管理</a></li>
           <li><a href="account.php">添加用户</a></li>
-          <li><a href="update.php">修改密码</a></li>
+          <li><a href="update.php">修改用户信息</a></li>
         {else}
           <li class="nav-header">报修管理</li>
           <li><a href="index.php">管理首页</a></li>
@@ -22,7 +22,7 @@
           <li><a href="show.php">报修汇总</a></li>
        
           <li class="nav-header">用户管理</li>
-          <li><a href="update.php">修改密码</a></li>
+          <li><a href="update.php">修改用户信息</a></li>
         {/if}
         <li class="divider"></li>
         <li><a href="logout.php">退出</a></li>
