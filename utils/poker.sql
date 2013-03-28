@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `barrack` (
   `consumer` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '帐户名',
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '密码',
   `role_id` int(11) NOT NULL COMMENT '角色id',
+  `telephone` varchar(15) NOT NULL COMMENT '电话号码',
   PRIMARY KEY (`orc_id`),
   UNIQUE KEY `consumer` (`consumer`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
