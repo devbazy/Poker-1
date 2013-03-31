@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `shire` (
   `filename` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `broken_item_class` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `broken_item` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '报修物品',
+  `wish_time` date DEFAULT NULL COMMENT '期待完成日期',
   `state` int(11) NOT NULL DEFAULT '0' COMMENT '维修状态',
   `state_context` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '维修状态的额外解释',
   `role_id` int(11) NOT NULL DEFAULT '0',

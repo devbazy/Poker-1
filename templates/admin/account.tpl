@@ -40,7 +40,7 @@
         <div class="control-group">
           <label class="control-label" for="telephone">电话号码</label>
           <div class="controls">
-            <input type="password" id="telephone" name="telephone" placeholder="请输入电话号码！">
+            <input type="text" id="telephone" name="telephone" placeholder="请输入电话号码！">
           </div>
         </div>
         <div class="control-group">

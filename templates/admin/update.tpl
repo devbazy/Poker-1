@@ -32,7 +32,7 @@
         <div class="control-group">
           <label class="control-label" for="re_password">修改电话号码</label>
           <div class="controls">
-            <input type="tele" id="telephone" name="telephone" placeholder="请输入新的电话号码！">
+            <input type="text" id="telephone" name="telephone" placeholder="请输入新的电话号码！">
           </div>
         </div>
         <div class="control-group">
