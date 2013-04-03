@@ -27,7 +27,6 @@ if($_POST){
         $smarty->assign('server_error', 'error');
     }else{
         $shire_id = update_shire($reporter,$report_id,$report_time,$contact_num,$department,$place, $broken_item_class, $broken_item,$reason,$wish_time,$detail, $filename, 0,'','','', $check, $ip);   
-        echo "$shire_id";
         update_notice(1, $shire_id,"new");
         $smarty->assign('server_msg', '申报成功!');
     }   
