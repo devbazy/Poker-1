@@ -3,7 +3,7 @@ define('APP_ADMIN_ROOT', dirname(__FILE__));
 include(APP_ADMIN_ROOT . '/middleware.php');
 
 $role = cache_role();
-if(auth_check() == false or $role['role_id'] != 1){
+if(auth_check() == false){
     header('Location: login.php');
 }
 
