@@ -11,6 +11,10 @@
       {/if}
       <a class="next" href="#">下一页</a>
       <a class="last" href="#">尾页</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" value="跳转到" class="btn-jump">
+      <input name="page" type="text" style="width:20px" id="_page">
+      <a href="#">页</a>
     </div>
   </div>
 
@@ -47,6 +51,18 @@ $(function(){
     var paging_page = parseInt(paginator.find('.paging_page').text().trim());
     var paging_total = parseInt(paginator.find('.paging_total').text().trim());
 
+    $('input.btn-jump').on('click',function(e){
+        e.preventDefault();
+        var _page = $('#_page').val().trim();
+        if ( (_page > paging_total) || (_page <= 0) ) {
+          alert("请输入正确的页码！");
+        }
+        else{
+          var http_args = decode_http_args();
+          http_args['p'] = _page;
+          window.location = window.location.pathname + '?' + encode_http_args(http_args);
+        }
+    });
     paging_op.on('click', '.first', function(e){
       e.preventDefault();
       var http_args = decode_http_args();
