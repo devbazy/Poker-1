@@ -746,4 +746,97 @@ function find_shires($shire_id, $limit=20){
     }
     return $shires;
 }
+
+function find_shires_class($broken_item_class){
+    $sql = "SELECT shire_id, reporter, report_id, report_time, contact_num, department, place, reason, detail, " . "broken_item, filename, state, state_context, repair_time, feedback FROM shire ";
+    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item_class='$broken_item_class';";
+    $db = new DB;
+    $db->connect();
+    $db->query($sql);
+    $shires = Array();
+    while($db->next_record()){
+        array_push($shires, Array(
+            'shire_id'  =>  $db->f('shire_id'),
+            'reporter'  =>  $db->f('reporter'),
+            'report_id' =>  $db->f('report_id'),
+            'report_time'   =>  $db->f('report_time'),
+            'contact_num'   =>  $db->f('contact_num'),
+            'department'    =>  $db->f('department'),
+            'place' =>  $db->f('place'),
+            'reason'    =>  $db->f('reason'),
+            'wish_time' =>  $db->f('wish_time'),
+            'detail'    =>  $db->f('detail'),
+            'broken_item'   =>  $db->f('broken_item'),
+            'filename'      =>  $db->f('filename'),
+            'state' =>  $db->f('state'),
+            'decode_state'  =>  decode_shire_state($db->f('state')),
+            'state_context' =>  $db->f('state_context'),
+            'repair_time'   =>  $db->f('repair_time'),
+            'feedback'  =>  $db->f('feedback'),
+        ));
+    }
+    return $shires;
+}
+
+function find_shires_wupin($broken_item){
+    $sql = "SELECT shire_id, reporter, report_id, report_time, contact_num, department, place, reason, detail, " . "broken_item, filename, state, state_context, repair_time, feedback FROM shire ";
+    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item='$broken_item';";
+    $db = new DB;
+    $db->connect();
+    $db->query($sql);
+    $shires = Array();
+    while($db->next_record()){
+        array_push($shires, Array(
+            'shire_id'  =>  $db->f('shire_id'),
+            'reporter'  =>  $db->f('reporter'),
+            'report_id' =>  $db->f('report_id'),
+            'report_time'   =>  $db->f('report_time'),
+            'contact_num'   =>  $db->f('contact_num'),
+            'department'    =>  $db->f('department'),
+            'place' =>  $db->f('place'),
+            'reason'    =>  $db->f('reason'),
+            'wish_time' =>  $db->f('wish_time'),
+            'detail'    =>  $db->f('detail'),
+            'broken_item'   =>  $db->f('broken_item'),
+            'filename'      =>  $db->f('filename'),
+            'state' =>  $db->f('state'),
+            'decode_state'  =>  decode_shire_state($db->f('state')),
+            'state_context' =>  $db->f('state_context'),
+            'repair_time'   =>  $db->f('repair_time'),
+            'feedback'  =>  $db->f('feedback'),
+        ));
+    }
+    return $shires;
+}
+
+function find_shires_time($report_time){
+    $sql = "SELECT shire_id, reporter, report_id, report_time, contact_num, department, place, reason, detail, " . "broken_item, filename, state, state_context, repair_time, feedback FROM shire ";
+    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND report_time='$report_time';";
+    $db = new DB;
+    $db->connect();
+    $db->query($sql);
+    $shires = Array();
+    while($db->next_record()){
+        array_push($shires, Array(
+            'shire_id'  =>  $db->f('shire_id'),
+            'reporter'  =>  $db->f('reporter'),
+            'report_id' =>  $db->f('report_id'),
+            'report_time'   =>  $db->f('report_time'),
+            'contact_num'   =>  $db->f('contact_num'),
+            'department'    =>  $db->f('department'),
+            'place' =>  $db->f('place'),
+            'reason'    =>  $db->f('reason'),
+            'wish_time' =>  $db->f('wish_time'),
+            'detail'    =>  $db->f('detail'),
+            'broken_item'   =>  $db->f('broken_item'),
+            'filename'      =>  $db->f('filename'),
+            'state' =>  $db->f('state'),
+            'decode_state'  =>  decode_shire_state($db->f('state')),
+            'state_context' =>  $db->f('state_context'),
+            'repair_time'   =>  $db->f('repair_time'),
+            'feedback'  =>  $db->f('feedback'),
+        ));
+    }
+    return $shires;
+}
 ?>

@@ -74,10 +74,25 @@
     {else}
     <div class="search_area">
       <form method="GET">
-        <input type="text" id="search" name="search" placeholder="输入要搜索的报修单号" />
+        <select id="search_class" name="search_class">
+          <option value="bianhao" selected="selected">按编号查找</option>
+          <option value="fenlei" >按分类查找</option>
+          <option value="wupin" >按报修物品查找</option>
+          <option value="time" >按报修时间查找</option>
+        </select>
+        <input type="text" id="search" name="search" placeholder="输入要搜索的报修单号或分类" />
         <button type="submit">查找</button>
+        <div>
+          <span style="background-color:#00FFFF"><strong>注意:</strong></span>
+          <div>
+            <span style="background-color:#00FFFF">报修编号前应该加'#'，如:#2013170</span>
+          </div>
+          <div>
+            <span style="background-color:#00FFFF">报修时间格式应为:2013-03-28或20130328</span>
+          </div>
+        </div>
       </form>
     </div>
     {/if}
   </div>
-{include file="footer.tpl"}
+  {include file="footer.tpl"}

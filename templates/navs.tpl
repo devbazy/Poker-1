@@ -24,6 +24,7 @@
           <li><a href="http://hq.hitwh.edu.cn/">后勤服务中心首页</a></li>
           <li><a href="{$domain}/app/index.php" class="home">报修系统首页</a></li>
           <li><a href="{$domain}/app/update.php">在线报修</a></li>
+          <li><a href="{$domain}/app/search.php">查找报修</a></li>
           <li><a href="#" class="quit_system">退出系统</a></li>
         </ul>
       </div>
@@ -39,11 +40,10 @@
                         <TD id="demo1" vAlign=top><table width="1024" bgcolor=#CCC border="0" cellpadding="0" cellspacing="0"> 
                       <tr> 
                         <td width="1024" bgcolor=#CCC><div align="center" class="msg" style="background-color:#CCC;"><img src="{$public}/img/d.gif" style="width:19px;height:18px;">后勤服务中心竭诚为您服务，欢迎使用在线报修系统！</div></td> 
-
                       </tr> 
                   </table></TD> 
                   <TD id="demo2" vAlign=top> </TD></TR></TABLE></DIV> 
-    </TD></TR></TABLE></TD></TR></TABLE> 
+    </TD></TR></TABLE></TD></TR></TABLE>
     </div></div>
   </div>
 {literal}

@@ -65,4 +65,4 @@
     </table>
   </div>
   {include file="paginator.tpl"}
-{include file="footer.tpl"}
+  {include file="footer.tpl"}
