@@ -35,30 +35,32 @@
                           </tr>
                           {foreach from=$shires item=shire}
                           <tr>
-                            <td width="10%" height=30 class="table-body" align="center">#2013{$shire.shire_id}</td>
+                            <td width="10%" height=30 class="table-body" align="center"><a href="{$domain}/app/detail.php?id={$shire.shire_id}">#2013{$shire.shire_id}</a></td>
                             <td width="14%" height=30 class="table-body" align="center">{$shire.department|escape}</td>
-                            <td width="13%" height=30 class="table-body" align="center">{$shire.place|escape|truncate:30:"..."}</td>
-                            <td width="13%" height=30 class="table-body" align="center">{$shire.reason|truncate:30:"..."}</td>
+                            <td width="13%" height=30 class="table-body" align="center">{$shire.place|escape}</td>
+                            <td width="13%" height=30 class="table-body" align="center">{$shire.reason|escape}</td>
                             <td width="10%" height=30 class="table-body" align="center">{$shire.broken_item|escape}</td>
                             <td width="10%" height=30 class="table-body" align="center">{$shire.report_time}</td>
-                            <td width="6%" height=30 class="table-body" align="center">{$shire.decode_state}</td>
                             {if $shire.state == 0}
-                              <td width="8%" height=30 class="table-body" align="center">{$shire.decode_state}</td>
+                              <td width="6%" height=30 class="table-body blue" align="center">{$shire.decode_state}</td>
+                              <td width="8%" height=30 class="table-body blue" align="center">{$shire.decode_state}</td>
                             {elseif $shire.state == 2}
-                              <td width="8%" height=30 class="table-body" align="center">{$shire.repair_time}</td>
+                              <td width="6%" height=30 class="table-body red" align="center">{$shire.decode_state}</td>
+                              <td width="8%" height=30 class="table-body red" align="center">{$shire.repair_time}</td>
                             {else}
+                              <td width="6%" height=30 class="table-body green" align="center">{$shire.decode_state}</td>
                               <td width="8%" height=30 class="table-body" align="center">&nbsp;</td>
                             {/if}
                             {if $shire.state == -1}
-                              <td width="16%" height=30 class="table-body" align="center">{$shire.state_context|escape|truncate:30:"..."}</td>
+                              <td width="16%" height=30 class="table-body" align="center">{$shire.state_context|escape}</td>
                             {elseif $shire.state == 2}
-                              <td width="16%" height=30 class="table-body" align="center">{$shire.feedback|escape|truncate:30:":..."}</td>
+                              <td width="16%" height=30 class="table-body red" align="center">{$shire.feedback|escape}</td>
                             {else}
                               <td width="16%" height=30 class="table-body" align="center">&nbsp;</td>
                             {/if}
                           </tr>
                           {foreachelse}
-                            <tr><td colspan=9 class="msg">没有相关报修数据!</td></tr>
+                            <tr><td colspan=9 class="msg">没有报修数据!</td></tr>
                           {/foreach}
                         </tbody>
                       </table>
