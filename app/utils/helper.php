@@ -749,7 +749,7 @@ function find_shires($shire_id, $limit=20){
 
 function find_shires_class($broken_item_class){
     $sql = "SELECT shire_id, reporter, report_id, report_time, contact_num, department, place, reason, detail, " . "broken_item, filename, state, state_context, repair_time, feedback FROM shire ";
-    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item_class='$broken_item_class';";
+    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item_class LIKE '%$broken_item_class%';";
     $db = new DB;
     $db->connect();
     $db->query($sql);
@@ -780,7 +780,7 @@ function find_shires_class($broken_item_class){
 
 function find_shires_wupin($broken_item){
     $sql = "SELECT shire_id, reporter, report_id, report_time, contact_num, department, place, reason, detail, " . "broken_item, filename, state, state_context, repair_time, feedback FROM shire ";
-    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item='$broken_item';";
+    $sql = $sql . "WHERE state<>-1 AND role_id<>0 AND broken_item LIKE '%$broken_item%';";
     $db = new DB;
     $db->connect();
     $db->query($sql);

@@ -83,12 +83,12 @@
         <input type="text" id="search" name="search" placeholder="输入要搜索的报修单号或分类" />
         <button type="submit">查找</button>
         <div>
-          <span style="background-color:#00FFFF"><strong>注意:</strong></span>
+          <span><font color="red"><strong>注意:</strong></font></span>
           <div>
-            <span style="background-color:#00FFFF">报修编号前应该加'#'，如:#2013170</span>
+            <span><font color="red">报修编号前应该加'#'，如:#2013170</font></span>
           </div>
           <div>
-            <span style="background-color:#00FFFF">报修时间格式应为:2013-03-28或20130328</span>
+            <span><font color="red">报修时间格式应为:2013-03-28或20130328</font></span>
           </div>
         </div>
       </form>
