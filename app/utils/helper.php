@@ -517,7 +517,7 @@ function update_shire($reporter, $report_id, $report_time, $contact_num, $depart
         $db = new DB;
         $db->connect();
         $db->query($sql);
-        $db->query("SELECT max(shire_id) as c FROM shire WHERE report_id=$report_id");
+        $db->query("SELECT max(shire_id) as c FROM shire WHERE report_id='$report_id' AND reporter='$reporter'");
         $db->next_record();
         return $db->f('c'); 
     } 
@@ -573,6 +573,14 @@ function do_user_repair($shire_id){
 function do_user_repair_feedback($shire_id, $feedback){
     $repair_time = date('Y/m/d');
     $sql = "UPDATE shire SET state=2, repair_time='$repair_time', feedback='$feedback' "
+         . "WHERE shire_id=$shire_id;";
+    $db = new DB;
+    $db->connect();
+    $db->query($sql);
+}
+
+function do_user_repair_freeze($shire_id, $extra_data){
+    $sql = "UPDATE shire SET state=-1, extra_data='$extra_data' "
          . "WHERE shire_id=$shire_id;";
     $db = new DB;
     $db->connect();

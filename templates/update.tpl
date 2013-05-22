@@ -256,8 +256,11 @@
       if(broken_item == '请选择'){
         broken_item = null;
       }
+      if (broken_item_class == '请选择') {
+        broken_item_class = null;
+      };
   
-      if(reporter && report_id && contact_num && department && broken_item && place && reason){
+      if(reporter && report_id && contact_num && department && broken_item && broken_item_class && place && reason){
         var hidden_data = [
           "<input type='hidden' name='department_decode' value='" + department + "'>",
           "<input type='hidden' name='broken_item_class_decode' value='" + broken_item_class + "'>",

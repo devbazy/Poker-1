@@ -64,7 +64,7 @@
                                   报修时间: {$shire.report_time}<br>
                                   报修原因: {$shire.reason|escape}<br>
                                   详细原因: {$shire.detail|escape}<br>
-                                  报修人员期待完成日期：{$shire.wish_time}<br>
+                                  报修人员期待完成日期：{$shire.wish_time|escape}<br>
                                   <font color="red">后勤管理员分配时间: {$shire.assign_time}</font><br>
                                   {if $shire.extra_data}
                                   <font color="red">后勤管理员分配备注:{$shire.extra_data|escape}</font><br>

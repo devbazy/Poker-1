@@ -1,7 +1,7 @@
 <?php
 function update_notice($role_id, $shire_id, $type){
     $type_array = array('后勤' => array('后勤人员你好！有新的报修来了！','后勤人员你好！您分配的维修任务被被接收了。','后勤人员你好！您分配的维修任务被拒绝！','后勤人员你好！已经修好了。') ,
-        '维修工' => array('维修人员你好！后勤分配来了新单了！','维修人员你好！后勤同意维修','维修人员你好！您的订单被驳回！') );
+        '维修工' => array('维修人员你好！后勤分配来了新单了！','维修人员你好！后勤同意维修！','维修人员你好！您的订单被驳回！','维修人员你好！维修单子被冻结了！') );
     if ($role_id == 1) {
         if ($type == 'new') {
             $event = $type_array['后勤'][0];
@@ -11,6 +11,8 @@ function update_notice($role_id, $shire_id, $type){
         }
         elseif ($type == 'reject') {
             $event = $type_array['后勤'][2];
+        }elseif ($type == 'done') {
+            $event = $type_array['后勤'][3];
         }
     }
     else{
@@ -22,9 +24,11 @@ function update_notice($role_id, $shire_id, $type){
         }
         elseif ($type == 'reject') {
             $event = $type_array['维修工'][2];
+        }elseif ($type == 'freeze') {
+            $event = $type_array['维修工'][3];
         }
     }
-    $sql = "SELECT * FROM shire WHERE shire_id=$shire_id";
+    $sql = "SELECT * FROM shire WHERE shire_id=$shire_id;";
     $db = new DB;
     $db->connect();
     $db->query($sql);

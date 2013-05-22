@@ -124,6 +124,16 @@
                                       </font>
                                     </td>
                                   </tr>
+                                  <tr>
+                                    {if $shire.state != -1}
+                                    {if $role_id==1}
+                                    <tr>
+                                      <td>冻结此报修,理由&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+                                      <td><button class="btn btn-danger btn-freeze" data-id="{$shire.shire_id}" data-state=-1>冻结</button></td>
+                                    </tr>
+                                    {/if}
+                                    {/if}
+                                  </tr>
                                 </table>
                               </td>
                             </tr>
@@ -174,6 +184,26 @@ $(function(){
 
         var extra_data = btn.closest('td').prev().find('input').val().trim();
         $.post('j/user.php', {shire_id:shire_id, feedback:feedback, extra_data:extra_data},
+            function(d){
+                if(d.r){ 
+                    alert("成功!");
+                    data_line.remove();
+                    hidden_line.remove();
+                }else{
+                    alert(d.msg);
+                    return false;
+                }
+            }
+        );
+    });
+    $('button.btn-freeze').on('click', function(e){
+        var btn = $(this);
+        var shire_id = btn.attr('data-id');
+        var state_context = '';
+        var hidden_line = btn.closest('.hidden');
+        var data_line = hidden_line.prev();
+        state_context = btn.closest('td').prev().find('input').val().trim();
+        $.post('j/freeze.php', {shire_id:shire_id, state_context:state_context},
             function(d){
                 if(d.r){ 
                     alert("成功!");
