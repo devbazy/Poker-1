@@ -579,6 +579,14 @@ function do_user_repair_feedback($shire_id, $feedback){
     $db->query($sql);
 }
 
+function do_user_repair_feed($shire_id, $feedback){
+    $sql = "UPDATE shire SET feedback='$feedback' "
+         . "WHERE shire_id=$shire_id;";
+    $db = new DB;
+    $db->connect();
+    $db->query($sql);
+}
+
 function do_user_repair_freeze($shire_id, $extra_data){
     $sql = "UPDATE shire SET state=-1, extra_data='$extra_data' "
          . "WHERE shire_id=$shire_id;";

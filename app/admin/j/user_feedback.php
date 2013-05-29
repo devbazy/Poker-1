@@ -22,6 +22,9 @@ if($type == 'repair'){
 }elseif($type == 'feedback'){
     $feedback = escape($_POST['feedback']);
     do_user_repair_feedback($shire_id, $feedback);
+}elseif ($type == 'feed') {
+	$feedback = escape($_POST['feedback']);
+	do_user_repair_feed($shire_id, $feedback);
 }
 
 return jsonize(Array(

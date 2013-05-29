@@ -81,7 +81,14 @@
                                       </td>
                                       <td>
                                         <button class="btn btn-success btn-admin" data-id="{$shire.shire_id}">确定</button>
-
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <textarea placeholder="输入维修原因。"></textarea>
+                                      </td>
+                                      <td>
+                                        <button class="btn btn-success btn-feed" data-id="{$shire.shire_id}">反馈</button>
                                       </td>
                                     </tr>
                                   </table>
@@ -136,6 +143,25 @@ $(function(){
                 if(d.r){ 
                     alert("成功!");
                     data_line.remove();
+                    hidden_line.remove();
+                }else{
+                    alert(d.msg);
+                    return false;
+                }
+            }
+        );
+    });
+    $('button.btn-feed').on('click', function(e){
+        var btn = $(this);
+        var hidden_line = btn.closest('.hidden');
+        //var data_line = hidden_line.prev();
+        var feedback = btn.closest('td').prev().find('textarea').val().trim();
+        var shire_id = btn.attr('data-id');
+        $.post('j/user_feedback.php', {type:'feed', shire_id:shire_id, feedback: feedback},
+            function(d){
+                if(d.r){ 
+                    alert("成功!");
+                    //data_line.remove();
                     hidden_line.remove();
                 }else{
                     alert(d.msg);
